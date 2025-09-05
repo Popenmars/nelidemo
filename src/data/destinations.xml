@@ -1,0 +1,27 @@
+<destinations>
+  <destination id="1">
+    <title>Paris, France</title>
+    <image>/images/paris.jpg</image>
+    <description>The city of lights—Eiffel Tower, cafés, and culture.</description>
+  </destination>
+  <destination id="2">
+    <title>Kyoto, Japan</title>
+    <image>/images/kyoto.jpg</image>
+    <description>Temples, teahouses and cherry blossoms.</description>
+  </destination>
+  <destination id="3">
+    <title>Cape Town, South Africa</title>
+    <image>/images/capetown.jpg</image>
+    <description>Table Mountain views, beaches, and dramatic coastline.</description>
+  </destination>
+  <destination id="4">
+    <title>New York City, USA</title>
+    <image>/images/nyc.jpg</image>
+    <description>Skyscrapers, Broadway, and endless energy.</description>
+  </destination>
+  <destination id="5">
+    <title>Rome, Italy</title>
+    <image>/images/rome.jpg</image>
+    <description>Ancient ruins, pasta, and piazzas.</description>
+  </destination>
+</destinations>
