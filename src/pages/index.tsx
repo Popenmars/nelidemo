@@ -3,19 +3,44 @@ import path from 'path'
 import xml2js from 'xml2js'
 import Layout from '../components/Layout'
 import DestinationCard from '../components/DestinationCard'
+import { Destination } from '../types/destination'
+import styles from '../styles/Home.module.scss'
+
+interface HomeProps {
+  items: Destination[]
+}
+
+interface RawDestination {
+  $: { id: string }
+  title: string[]
+  image?: string[]
+  images?: string[]
+  description: string[]
+}
+
 export async function getStaticProps() {
-  const xml = fs.readFileSync(path.join(process.cwd(),'src/data/destinations.xml'),'utf8')
+  const xml = fs.readFileSync(path.join(process.cwd(), 'src/data/destinations.xml'), 'utf8')
   const parsed = await xml2js.parseStringPromise(xml)
-  const items = parsed.destinations.destination.map((d:any)=>({id:d.$.id,title:d.title[0],images:d.images[0],description:d.description[0]}))
+
+  const items: Destination[] = (parsed.destinations.destination as RawDestination[]).map((d) => ({
+    id: d.$.id,
+    title: d.title[0],
+    image: d.image?.[0] || d.images?.[0] || '',
+    description: d.description[0],
+  }))
+
   return { props: { items } }
 }
-export default function Home({ items }: any) {
+
+export default function Home({ items }: HomeProps) {
   return (
     <Layout title="Travel Demo — Destinations" description="Explore sample travel destinations.">
-      <section aria-labelledby="destinations">
-        <h2 id="destinations" className="text-2xl font-bold mb-4">Destinations</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {items.map((it:any)=><DestinationCard key={it.id} dest={it} />)}
+      <section aria-labelledby="destinations" className={styles.section}>
+        <h2 id="destinations" className={styles.heading}>Destinations</h2>
+        <div className={styles.grid}>
+          {items.map((it) => (
+            <DestinationCard key={it.id} dest={it} />
+          ))}
         </div>
       </section>
     </Layout>

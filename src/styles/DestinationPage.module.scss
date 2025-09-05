@@ -1,0 +1,27 @@
+.article {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 16rem; 
+    margin-bottom: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.description {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
