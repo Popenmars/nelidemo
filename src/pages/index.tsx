@@ -6,7 +6,7 @@ import DestinationCard from '../components/DestinationCard'
 export async function getStaticProps() {
   const xml = fs.readFileSync(path.join(process.cwd(),'src/data/destinations.xml'),'utf8')
   const parsed = await xml2js.parseStringPromise(xml)
-  const items = parsed.destinations.destination.map((d:any)=>({id:d.$.id,title:d.title[0],image:d.image[0],description:d.description[0]}))
+  const items = parsed.destinations.destination.map((d:any)=>({id:d.$.id,title:d.title[0],images:d.images[0],description:d.description[0]}))
   return { props: { items } }
 }
 export default function Home({ items }: any) {
